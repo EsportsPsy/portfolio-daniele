@@ -59,7 +59,6 @@
       overflow: hidden;
     }
 
-    /* Glitch background accents */
     .page-frame::before,
     .page-frame::after {
       content: "";
@@ -95,13 +94,11 @@
       body {
         padding: 1.5rem 0.75rem;
       }
-
       .content {
         padding: 2.25rem 1.5rem;
       }
     }
 
-    /* Top HUD line */
     .hud-line {
       height: 3px;
       background: linear-gradient(
@@ -112,32 +109,8 @@
         rgba(143, 91, 255, 0.65) 80%,
         transparent 100%
       );
-      position: relative;
-      overflow: hidden;
       margin-bottom: 1.75rem;
     }
-
-    .hud-line::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.45),
-        transparent
-      );
-      width: 120px;
-      animation: hud-scan 4.5s linear infinite;
-      mix-blend-mode: screen;
-    }
-
-    @keyframes hud-scan {
-      0% { transform: translateX(-140%); }
-      100% { transform: translateX(260%); }
-    }
-
-    /* HERO */
 
     .hero {
       display: grid;
@@ -154,33 +127,17 @@
       }
     }
 
-    .hero-title-block {
-      position: relative;
-    }
-
     .hero-name {
       font-family: 'Orbitron', system-ui, sans-serif;
       font-size: clamp(2.4rem, 3vw + 1rem, 3.1rem);
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin: 0 0 0.5rem;
+      margin: 0;
       color: var(--primary);
       text-shadow:
         0 0 18px rgba(50, 224, 255, 0.7),
         2px 0 0 rgba(255, 46, 159, 0.4),
         -2px 0 0 rgba(143, 91, 255, 0.4);
-      position: relative;
-    }
-
-    .hero-name::before {
-      content: "";
-      position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-      width: 120px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary), transparent);
-      opacity: 0.85;
     }
 
     .hero-role {
@@ -225,19 +182,6 @@
       max-width: 38rem;
     }
 
-    /* Portrait */
-
-    .hero-portrait-wrapper {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    @media (max-width: 820px) {
-      .hero-portrait-wrapper {
-        justify-content: flex-start;
-      }
-    }
-
     .portrait-card {
       position: relative;
       width: min(260px, 72vw);
@@ -270,18 +214,6 @@
       transform: translateY(4px);
     }
 
-    .portrait-hud-ring {
-      position: absolute;
-      inset: 18px 18px auto auto;
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      border: 1px solid rgba(50, 224, 255, 0.7);
-      box-shadow: 0 0 18px rgba(50, 224, 255, 0.7);
-      opacity: 0.8;
-      mix-blend-mode: screen;
-    }
-
     .portrait-tag {
       position: absolute;
       left: 16px;
@@ -296,8 +228,6 @@
       color: var(--primary);
       backdrop-filter: blur(4px);
     }
-
-    /* Sections layout */
 
     .section-grid {
       display: grid;
@@ -343,28 +273,8 @@
       overflow: hidden;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg,
-          rgba(50, 224, 255, 0.14),
-          rgba(255, 46, 159, 0.12),
-          rgba(143, 91, 255, 0.16)
-        );
-      mix-blend-mode: soft-light;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 220ms ease-out;
-    }
-
     .card:hover::before {
       opacity: 0.6;
-    }
-
-    .card + .card {
-      margin-top: 0.9rem;
     }
 
     .card h3 {
@@ -380,10 +290,6 @@
       font-size: 0.9rem;
       line-height: 1.6;
       color: var(--text-muted);
-    }
-
-    .card p + p {
-      margin-top: 0.5rem;
     }
 
     .pill-list {
@@ -403,132 +309,21 @@
       border: 1px solid rgba(255, 255, 255, 0.14);
       color: var(--text-main);
     }
-
-    .list-compact {
-      list-style: none;
-      padding-left: 0;
-      margin: 0.1rem 0 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .list-compact li {
-      margin: 0.18rem 0;
-      position: relative;
-      padding-left: 1rem;
-    }
-
-    .list-compact li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--secondary);
-      font-size: 0.75rem;
-      transform: translateY(2px);
-    }
-
-    /* Experience blocks */
-
-    .experience-item {
-      margin-bottom: 0.9rem;
-    }
-
-    .experience-role {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--text-main);
-    }
-
-    .experience-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin: 0.15rem 0 0.3rem;
-    }
-
-    .experience-bullets {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .experience-bullets li {
-      margin: 0.14rem 0;
-      padding-left: 0.9rem;
-      position: relative;
-    }
-
-    .experience-bullets li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: -1px;
-      color: var(--primary);
-      font-size: 0.75rem;
-    }
-
-    /* Contact */
-
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 1.8rem;
-      align-items: center;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .contact-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.75rem;
-      color: var(--primary);
-    }
-
-    .contact-link {
-      color: var(--text-main);
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(50, 224, 255, 0.5);
-      padding-bottom: 1px;
-    }
-
-    .contact-link:hover {
-      color: var(--primary);
-      border-bottom-style: solid;
-    }
-
-    .footer-note {
-      margin-top: 1.6rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      opacity: 0.8;
-    }
   </style>
 </head>
+
 <body>
   <main class="page-frame">
     <div class="content">
+
       <div class="hud-line"></div>
 
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-title-block">
+        <div>
           <h1 class="hero-name">Daniele Stizza</h1>
           <p class="hero-role">Sports &amp; Esports Performance Psychologist</p>
-          <p class="hero-subtitle">Mental Coach · Cognitive Neuroscience · Biofeedback Specialist</p>
+          <p class="hero-subtitle">Mental Coach • Cognitive Neuroscience • Biofeedback Specialist</p>
 
           <div class="hero-badge-row">
             <span class="badge">Esports Psychologist</span>
@@ -538,24 +333,23 @@
 
           <p class="hero-summary">
             I support esports athletes and teams in managing pressure, stabilizing performance and
-            building healthier, more resilient competitive environments. My work combines sports psychology,
-            cognitive neuroscience and practical mental tools tailored to the demands of high-level play.
+            building healthier, more resilient competitive environments. My work combines sports
+            psychology, cognitive neuroscience and practical mental tools tailored to high-level play.
           </p>
         </div>
 
+        <!-- PORTRAIT -->
         <div class="hero-portrait-wrapper">
           <div class="portrait-card">
             <div class="portrait-inner">
-              <!-- Sostituisci il percorso dell'immagine con il tuo file -->
               <img src="daniele_stizza_profile.jpg" alt="Portrait of Daniele Stizza" />
-              <div class="portrait-hud-ring"></div>
               <div class="portrait-tag">Esports • Mental Coach</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT + SPECIALIZATIONS -->
+      <!-- ABOUT -->
       <section class="section-grid" id="about">
         <div>
           <h2 class="section-title">About</h2>
@@ -568,8 +362,8 @@
             <p>
               I help players and teams develop stronger focus, emotional stability and communication skills
               through tailored, evidence-based interventions. My work integrates mental skills training,
-              cognitive-behavioral strategies and bio/neurofeedback protocols to enhance consistency and
-              resilience under pressure.
+              cognitive-behavioral strategies and bio/neurofeedback protocols to enhance consistency
+              and resilience under pressure.
             </p>
           </div>
         </div>
@@ -585,13 +379,13 @@
               <li>Pressure &amp; Stress Management</li>
               <li>Team Building &amp; Communication</li>
               <li>Resilience &amp; Consistency Protocols</li>
-              <li>Biofeedback &amp; Neurofeedback for Performance</li>
+              <li>Biofeedback &amp; Neurofeedback</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- EXPERIENCE + METHODS -->
+      <!-- EXPERIENCE -->
       <section class="section-grid" id="experience">
         <div>
           <h2 class="section-title">Esports Experience</h2>
@@ -604,8 +398,8 @@
               <div class="experience-meta">May 2025 – August 2025</div>
               <ul class="experience-bullets">
                 <li>Mental preparation for Tekken 8 &amp; Street Fighter athletes.</li>
-                <li>Focus and pressure-management routines for tournament play.</li>
-                <li>Emotional regulation and performance stability in high-stakes settings.</li>
+                <li>Focus and pressure-management routines for tournaments.</li>
+                <li>Emotional regulation and performance stability under pressure.</li>
               </ul>
             </div>
 
@@ -614,7 +408,7 @@
               <div class="experience-meta">Nov 2024 – Present</div>
               <ul class="experience-bullets">
                 <li>Development of performance routines and consistency frameworks.</li>
-                <li>Support for team communication and identity building.</li>
+                <li>Support for communication and team identity building.</li>
               </ul>
             </div>
 
@@ -630,7 +424,7 @@
               <div class="experience-role">Mental Coach · Qlash Valorant Community</div>
               <div class="experience-meta">Sep 2023 – Present</div>
               <ul class="experience-bullets">
-                <li>Supporting Valorant players across ranked, competitive and tournament preparation.</li>
+                <li>Support for ranked, competitive and tournament preparation.</li>
               </ul>
             </div>
 
@@ -638,7 +432,7 @@
               <div class="experience-role">Mental Coach · Grifone Esports</div>
               <div class="experience-meta">Feb 2023 – Feb 2024</div>
               <ul class="experience-bullets">
-                <li>Mental training structure for multi-title rosters.</li>
+                <li>Mental training programs for multi-title rosters.</li>
               </ul>
             </div>
 
@@ -646,7 +440,7 @@
               <div class="experience-role">Esports Psychologist · Esports University</div>
               <div class="experience-meta">Jan 2023 – Feb 2024</div>
               <ul class="experience-bullets">
-                <li>Workshops, psychological education and performance mindset programs.</li>
+                <li>Workshops and performance mindset programs.</li>
               </ul>
             </div>
 
@@ -662,33 +456,34 @@
               <div class="experience-role">Mental Coach · Reply Totem (Valorant)</div>
               <div class="experience-meta">Dec 2020 – Jan 2021</div>
               <ul class="experience-bullets">
-                <li>Short-term mental preparation during a roster transition period.</li>
+                <li>Short-term mental preparation during a roster transition.</li>
               </ul>
             </div>
           </div>
         </div>
 
+        <!-- METHODS -->
         <div>
           <h2 class="section-title">Methods &amp; Approach</h2>
 
           <div class="card">
             <h3>Framework</h3>
             <ul class="list-compact">
-              <li>Cognitive-behavioral techniques (CBT) adapted to esports contexts.</li>
-              <li>Stress-management and breathing techniques for competition.</li>
-              <li>Visualization and mental rehearsal for decision-making under pressure.</li>
-              <li>Biofeedback &amp; neurofeedback training (BFE certified).</li>
-              <li>Focus-enhancement drills and attention protocols.</li>
-              <li>Performance consistency systems across scrims and officials.</li>
-              <li>Team communication optimization and role clarity.</li>
-              <li>Pre-match and pre-scrim routines for players and teams.</li>
-              <li>Emotional regulation frameworks for tilt and burnout prevention.</li>
+              <li>Cognitive-behavioral techniques adapted to esports contexts.</li>
+              <li>Stress-management and breathing methods.</li>
+              <li>Visualization and mental rehearsal.</li>
+              <li>Biofeedback &amp; neurofeedback (BFE certified).</li>
+              <li>Focus-enhancement training.</li>
+              <li>Performance consistency protocols.</li>
+              <li>Team communication optimization.</li>
+              <li>Pre-match and pre-scrim routines.</li>
+              <li>Emotional regulation for tilt &amp; burnout prevention.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- EDUCATION + SKILLS -->
+      <!-- EDUCATION & SKILLS -->
       <section class="section-grid" id="education">
         <div>
           <h2 class="section-title">Education &amp; Certifications</h2>
@@ -714,15 +509,16 @@
           <div class="card">
             <h3>Specialized Training</h3>
             <ul class="experience-bullets">
-              <li><strong>Level II Certification in Bio- &amp; Neurofeedback</strong> – BFE European Biofeedback Federation (2019 – Present)</li>
-              <li><strong>First Degree Mental Coach for Tennis</strong> – Roberto Lombardi Higher Education Institute, Rome (2018 – Present)</li>
+              <li><strong>Level II Certification in Bio- &amp; Neurofeedback</strong> – BFE (2019 – Present)</li>
+              <li><strong>First Degree Mental Coach for Tennis</strong> – Roberto Lombardi Institute (2018 – Present)</li>
               <li><strong>Psychology &amp; Mental Preparation in Esports</strong> – Fly Psychology (2020)</li>
-              <li><strong>Business English Course</strong> – Forma Temp, Rome (Nov 2024 – Dec 2024)</li>
-              <li><strong>HR Specialist – Human Resources</strong> – Forma Temp, Rome (Sep 2024)</li>
+              <li><strong>Business English Certificate</strong> – Forma Temp (2024)</li>
+              <li><strong>HR Specialist Certificate</strong> – Forma Temp (2024)</li>
             </ul>
           </div>
         </div>
 
+        <!-- SKILLS -->
         <div>
           <h2 class="section-title">Technical Esports Skills</h2>
 
@@ -730,17 +526,19 @@
             <h3>Esports Ecosystem</h3>
             <p>
               I follow the international competitive scene across all major titles and adapt my psychological
-              work to different esports ecosystems, including:
+              methods to different esports ecosystems, including:
             </p>
+
             <ul class="list-compact">
-              <li>Fighting Games (Tekken, Street Fighter and FGC circuits).</li>
-              <li>FPS titles (Valorant, CS2, Overwatch and similar).</li>
-              <li>MOBA environments (League of Legends and team-based strategy games).</li>
-              <li>Sports titles and other competitive genres.</li>
+              <li>Fighting Games (Tekken, Street Fighter, FGC circuits).</li>
+              <li>FPS: Valorant, CS2, Overwatch.</li>
+              <li>MOBA: League of Legends.</li>
+              <li>Sports titles &amp; other competitive genres.</li>
             </ul>
+
             <p>
-              I am proficient in using esports-related tools for player performance monitoring, mental training
-              and team dynamics analysis, ensuring a comprehensive and tailored approach to mental coaching.
+              Proficient in performance-monitoring tools, mental-training software and team dynamics analysis
+              systems used in the esports environment.
             </p>
           </div>
         </div>
@@ -749,17 +547,21 @@
       <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title">Contact</h2>
+
         <div class="card">
-          <h3>Let’s Connect</h3>
+          <h3>Let's Connect</h3>
+
           <p>
-            If you are a coach, manager or player interested in mental performance systems for your team or
-            organization, feel free to reach out.
+            If you are a coach, manager or player interested in mental performance systems,
+            feel free to reach out.
           </p>
 
           <div class="contact-row">
             <div class="contact-item">
               <span class="contact-icon">@</span>
-              <a class="contact-link" href="mailto:stizzadaniele@gmail.com">stizzadaniele@gmail.com</a>
+              <a class="contact-link" href="mailto:stizzadaniele@gmail.com">
+                stizzadaniele@gmail.com
+              </a>
             </div>
 
             <div class="contact-item">
@@ -775,6 +577,7 @@
           </p>
         </div>
       </section>
+
     </div>
   </main>
 </body>
